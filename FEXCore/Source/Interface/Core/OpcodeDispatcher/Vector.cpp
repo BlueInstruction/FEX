@@ -2541,7 +2541,7 @@ Ref OpDispatchBuilder::VFCMPOpImpl(OpSize Size, IR::OpSize ElementSize, Ref Src1
     return _VAnd(Size, ElementSize, Result, Src2_U);
   }
   case VectorCompareType::FALSE_OQ:
-  case VectorCompareType::FALSE_OS: return LoadZeroVector(OpSize::i128Bit);
+  case VectorCompareType::FALSE_OS: return LoadZeroVector(Size);
   case VectorCompareType::TRUE_UQ:
   case VectorCompareType::TRUE_US: return _VectorImm(Size, OpSize::i8Bit, -1, 0);
   }
