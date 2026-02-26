@@ -187,7 +187,7 @@ FEX::HLE::ThreadStateObject* ThreadManager::CreateThread(uint64_t InitialRIP, ui
   auto AllocBase =
     reinterpret_cast<uint64_t>(FEXCore::Allocator::mmap(nullptr, CALLRET_STACK_ALLOC_SIZE, PROT_NONE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0));
 
-  FEXCore::Allocator::VirtualName("FEXMem_Misc", reinterpret_cast<void*>(AllocBase), CALLRET_STACK_ALLOC_SIZE);
+  FEXCore::Allocator::VirtualName("FEXMem_CallRetStacks", reinterpret_cast<void*>(AllocBase), CALLRET_STACK_ALLOC_SIZE);
 
   // Set the base used for invalidation to the start past the guard pages
   ThreadStateObject->Thread->CallRetStackBase = reinterpret_cast<void*>(AllocBase + FEXCore::Utils::FEX_PAGE_SIZE);
